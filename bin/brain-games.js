@@ -2,5 +2,5 @@
 import greeting from '../src/cli.js';
 
 console.log('Welcome to the Brain Games!');
-let userName = greeting();
-console.log(`Hello, ${userName}!`)
+const userName = greeting();
+console.log(`Hello, ${userName}!`);
