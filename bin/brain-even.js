@@ -1,16 +1,15 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
+import introduction,
+{
+  question,
+  answer,
+  randomInteger,
+  wrongAnswerWarning,
+  winAnnouncement,
+} from '../src/index.js';
 
 const parityCheck = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  const randomInteger = () => {
-    const randomMunber = Math.random();
-    const integer = randomMunber.toFixed(2) * 100;
-    return integer;
-  };
+  const userName = introduction('Answer "yes" if the number is even, otherwise answer "no".');
 
   const isEven = (number) => {
     if (number % 2 === 0) {
@@ -21,22 +20,19 @@ const parityCheck = () => {
 
   for (let i = 0; i < 3; i += 1) {
     const randomNum = randomInteger();
-    console.log(`Question: ${randomNum}`);
-    const userAnswer = readlineSync.question('Your answer: ');
+    question(randomNum);
+    const userAnswer = answer();
 
     const correctAnswer = ((userAnswer === 'yes') && (isEven(randomNum) === true)) || ((userAnswer === 'no') && (isEven(randomNum) === false));
+    const oppositeAnswer = isEven(randomNum) ? 'yes' : 'no';
 
     if (correctAnswer === false) {
-      const oppositeAnswer = userAnswer === 'yes' ? 'no' : 'yes';
-
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${oppositeAnswer}.`);
-      console.log(`Let's try again, ${userName}`);
+      wrongAnswerWarning(userAnswer, oppositeAnswer, userName);
       break;
     }
     console.log('Correct!');
-    if (i === 2) {
-      console.log(`Congratulations, ${userName}`);
-    }
+
+    winAnnouncement(i, 2, userName);
   }
 };
 parityCheck();
