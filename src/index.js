@@ -25,11 +25,11 @@ export const randomInteger = (numberSize = 2, decimalPointNumber = 2) => {
   const size = 10 ** numberSize;
   const randomNunber = Math.random();
   const integer = randomNunber.toFixed(decimalPointNumber) * size;
-  return integer.toFixed(0);
+  return +integer.toFixed(0);
 };
 
-export const wrongAnswerWarning = (userAnswer, oppositeAnswer, userName) => {
-  console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${oppositeAnswer}.`);
+export const wrongAnswerWarning = (userAnswer, rightAnswer, userName) => {
+  console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
   console.log(`Let's try again, ${userName}`);
 };
 
@@ -38,5 +38,21 @@ export const winAnnouncement = (counter, numberOfRounds, userName) => {
     console.log(`Congratulations, ${userName}`);
   }
 };
+
+// export const responseСheck = (wrongAnswerCase, userAnswer, correctAnswer, userName) => {
+//   if (wrongAnswerCase) {
+//     wrongAnswerWarning(userAnswer, correctAnswer, userName);
+//     return false;
+//   }
+//   return true;
+// };
+
+// if responseСheck() === false {
+
+//   break
+// }
+
+// console.log('Correct!');
+// winAnnouncement(counter, 2, userName);
 
 export default introduction;
