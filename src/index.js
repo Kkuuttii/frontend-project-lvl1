@@ -30,7 +30,7 @@ export const randomInteger = (numberSize = 2, decimalPointNumber = 2) => {
 
 export const wrongAnswerWarning = (userAnswer, rightAnswer, userName) => {
   console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
-  console.log(`Let's try again, ${userName}`);
+  console.log(`Let's try again, ${userName}!`);
 };
 
 export const winAnnouncement = (counter, numberOfRounds, userName) => {
