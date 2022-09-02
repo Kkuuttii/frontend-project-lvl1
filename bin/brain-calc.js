@@ -25,6 +25,21 @@ const brainCalc = () => {
     return sign;
   };
 
+  const checkup = (stringSign, numberOne, numberTwo) => {
+    let correctrResult = null;
+    switch (stringSign) {
+      case '+':
+        correctrResult = numberOne + numberTwo;
+        break;
+      case '-':
+        correctrResult = numberOne - numberTwo;
+        break;
+      default:
+        correctrResult = numberOne * numberTwo;
+    }
+    return correctrResult;
+  };
+
   for (let i = 0; i < 3; i += 1) {
     const sign = randomSign();
     const firstNumber = randomInteger();
@@ -34,23 +49,8 @@ const brainCalc = () => {
     }
     const interrogation = `${firstNumber} ${sign} ${secondNumber}`;
     question(interrogation);
+
     const userAnswer = answer();
-
-    const checkup = (stringSign, numberOne, numberTwo) => {
-      let correctrResult = null;
-      switch (stringSign) {
-        case '+':
-          correctrResult = numberOne + numberTwo;
-          break;
-        case '-':
-          correctrResult = numberOne - numberTwo;
-          break;
-        default:
-          correctrResult = numberOne * numberTwo;
-      }
-      return correctrResult;
-    };
-
     const correctAnswer = checkup(sign, firstNumber, secondNumber);
 
     if (+userAnswer !== correctAnswer) {
