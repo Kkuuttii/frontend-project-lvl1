@@ -35,7 +35,7 @@ export const wrongAnswerWarning = (userAnswer, rightAnswer, userName) => {
 
 export const winAnnouncement = (counter, numberOfRounds, userName) => {
   if (counter === numberOfRounds) {
-    console.log(`Congratulations, ${userName}`);
+    console.log(`Congratulations, ${userName}!`);
   }
 };
 
